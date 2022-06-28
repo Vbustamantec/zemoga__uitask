@@ -1,26 +1,72 @@
 import React, { useEffect, useState } from 'react';
+import { doc, updateDoc } from 'firebase/firestore';
 
 import './Card.scss';
 import { images } from '../constants';
 import { useGlobalContext } from '../context/GlobalContextProvider';
+import db from '../firebase/firebaseConfig';
 
 const Card = ({ id, name, category, description, picture, votes }) => {
   const { display } = useGlobalContext();
   const [positivePercentage, setPositivePercentage] = useState(0);
   const [negativePercentage, setNegativePercentage] = useState(0);
+  const [positiveVotes, setPositiveVotes] = useState(votes.positive);
+  const [negativeVotes, setNegativeVotes] = useState(votes.negative);
+  const [voteSelected, setVoteSelected] = useState('');
+  const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
-    const totalVotes = votes.positive + votes.negative;
+    handlePercentages();
+  }, []);
 
-    const negPercentage = (votes.negative * 100) / totalVotes;
+  const handleOption = (vote) => {
+    if (voteSelected === vote) {
+      setVoteSelected('');
+    } else {
+      setVoteSelected(vote);
+      console.log(vote);
+    }
+  };
+
+  const handlePercentages = () => {
+    const totalVotes = positiveVotes + negativeVotes;
+
+    const negPercentage = (negativeVotes * 100) / totalVotes;
     const finalNegPercentage = negPercentage.toFixed(2);
 
-    const posPercentage = (votes.positive * 100) / totalVotes;
+    const posPercentage = (positiveVotes * 100) / totalVotes;
     const finalPostPercentage = posPercentage.toFixed(2);
 
     setNegativePercentage(finalNegPercentage);
     setPositivePercentage(finalPostPercentage);
-  }, []);
+  };
+
+  const handleVote = () => {
+    const docRef = doc(db, 'candidates', id);
+    setHasVoted(!hasVoted);
+
+    if (voteSelected === 'thumbsDown') {
+      setNegativeVotes((prevVotes) => prevVotes + 1);
+      updateDoc(docRef, {
+        votes: {
+          positive: positiveVotes,
+          negative: negativeVotes + 1,
+        },
+      });
+    } else if (voteSelected === 'thumbsUp') {
+      setPositiveVotes((prevVotes) => prevVotes + 1);
+      updateDoc(docRef, {
+        votes: {
+          positive: positiveVotes + 1,
+          negative: negativeVotes,
+        },
+      });
+    }
+  };
+
+  useEffect(() => {
+    handlePercentages();
+  }, [positiveVotes, negativeVotes]);
 
   return (
     <div className={display === 'grid' ? 'card__container' : 'card__container-list'}>
@@ -42,16 +88,45 @@ const Card = ({ id, name, category, description, picture, votes }) => {
             <p>{description}</p>
           </div>
           <div className="card__buttons">
-            <p>1 month ago in {category}</p>
-            <div className="card__buttons-group">
-              <button className="card__button-thumbsUp">
-                <img onClick={() => console.log('ello')} src={images.thumbsUp} alt=" Thumbs Up" />
-              </button>
-              <button className="card__button-thumbsDown">
-                <img src={images.thumbsDown} alt=" Thumbs Down" />
-              </button>
-              <button className="card__button-vote">Vote Now</button>
-            </div>
+            {!hasVoted ? (
+              <>
+                <p>1 month ago in {category}</p>
+                <div className="card__buttons-group">
+                  <button
+                    className={`card__button-thumbsUp ${
+                      voteSelected === 'thumbsUp' ? 'button-selected' : ''
+                    }`}
+                    onClick={() => handleOption('thumbsUp')}
+                  >
+                    <img src={images.thumbsUp} alt=" Thumbs Up" />
+                  </button>
+                  <button
+                    className={`card__button-thumbsDown ${
+                      voteSelected === 'thumbsDown' ? 'button-selected' : ''
+                    }`}
+                    onClick={() => handleOption('thumbsDown')}
+                  >
+                    <img src={images.thumbsDown} alt=" Thumbs Down" />
+                  </button>
+                  <button
+                    disabled={voteSelected === ''}
+                    className="card__button-vote"
+                    onClick={() => handleVote()}
+                  >
+                    Vote Now
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>Thank you for your vote!</p>
+                <div className="card__buttons-group">
+                  <button className="card__button-vote" onClick={() => setHasVoted(!hasVoted)}>
+                    Vote Again
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div className="card__gauge">

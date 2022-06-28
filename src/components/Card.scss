@@ -72,6 +72,12 @@
           align-items: center;
           gap: 1rem;
 
+          button:disabled {
+            background: var(--color-darker-gray);
+            color: var(--color-light-background);
+            cursor: default;
+          }
+
           .card__button-thumbsUp {
             cursor: pointer;
             display: flex;
@@ -114,7 +120,6 @@
 
           .card__button-vote {
             cursor: pointer;
-
             padding: 10px 1rem;
             background: rgba(48, 48, 48, 0.6);
             border: 1px solid #ffffff;
@@ -270,6 +275,12 @@
           justify-content: flex-end;
           gap: 1rem;
 
+          button:disabled {
+            background: var(--color-darker-gray);
+            color: var(--color-light-background);
+            cursor: default;
+          }
+
           .card__button-thumbsUp {
             cursor: pointer;
             display: flex;
@@ -352,6 +363,14 @@
     }
   }
 }
+
+/*SELECTED CLASSES*/
+
+.button-selected {
+  outline: 2px solid white;
+}
+
+/*MEDIA QUERIES - LITTLE BREAKPOINTS*/
 
 @media screen and (max-width: 1100px) {
   .card__container-list {

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, updateDoc } from 'firebase/firestore';
 
 import db from '../firebase/firebaseConfig';
 
@@ -21,10 +21,12 @@ export const GlobalContextProvider = ({ children }) => {
     return products;
   };
 
+  const updateVotes = async () => {
+    await updateDoc();
+  };
+
   return (
-    <GlobalContext.Provider
-      value={{ display, setDisplay, getData, candidates, setCandidates }}
-    >
+    <GlobalContext.Provider value={{ display, setDisplay, getData, candidates, setCandidates }}>
       {children}
     </GlobalContext.Provider>
   );
