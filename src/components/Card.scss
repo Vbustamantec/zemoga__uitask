@@ -1,0 +1,388 @@
+.card__container {
+  position: relative;
+  width: 350px;
+  height: 350px;
+
+  .card__thumbs {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 0;
+    top: 35%;
+    padding: 0.5rem;
+    background: rgba(60, 187, 180, 0.6);
+  }
+
+  .card__img {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+  }
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+
+    .card__wrapper {
+      z-index: 1;
+      position: relative;
+      height: 75%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 0.75rem 0 2.75rem;
+      margin: 0;
+      color: white;
+
+      .card__text {
+        h2 {
+          color: white;
+          margin: 0;
+          font-size: 35px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+
+        p {
+          font-size: 15px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
+      .card__buttons {
+        align-self: flex-end;
+
+        p {
+          font-size: 12px;
+          font-weight: 700;
+          text-align: right;
+        }
+        .card__buttons-group {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 1rem;
+
+          .card__button-thumbsUp {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2px;
+            background: rgba(60, 187, 180, 0.6);
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .card__button-thumbsUp:hover {
+            background: #3cbbb4;
+          }
+
+          .card__button-thumbsDown {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2px;
+            background: rgba(249, 173, 29, 0.6);
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .card__button-thumbsDown:hover {
+            background: #fbbd4a;
+          }
+
+          .card__button-vote {
+            cursor: pointer;
+
+            padding: 10px 1rem;
+            background: rgba(48, 48, 48, 0.6);
+            border: 1px solid #ffffff;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .card__gauge {
+      color: white;
+
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 36px;
+      z-index: 1;
+
+      .card__gauge-positive {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        height: 36px;
+        width: 30%;
+        background: rgba(60, 187, 180, 0.6);
+        p {
+          span {
+            padding-right: 0.5rem;
+
+            img {
+              width: 15px;
+              height: 17.5px;
+            }
+          }
+          padding-left: 1rem;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .card__gauge-negative {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 36px;
+        width: 70%;
+        background: rgba(249, 173, 29, 0.6);
+        text-align: right;
+        p {
+          padding-right: 1rem;
+          span {
+            padding-right: 0.5rem;
+
+            img {
+              width: 15px;
+              height: 17.5px;
+            }
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*CARD LIST MODE*/
+
+.card__container-list {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    #888888 25%,
+    #666666 65%,
+    rgba(51, 51, 51, 0.6) 71.88%
+  );
+  margin-bottom: 1rem;
+
+  .card__img-list {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+  }
+
+  .card__thumbs-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 20px;
+    width: 20px;
+    padding: 0.5rem;
+    background: rgba(60, 187, 180, 0.6);
+  }
+
+  .card__content-list {
+    width: 100%;
+    height: 100%;
+    .card__wrapper-list {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .card__text-list {
+        align-self: flex-start;
+        margin-top: 1rem;
+        color: white;
+
+        h2 {
+          color: white;
+          margin: 0;
+          font-size: 2rem;
+        }
+        p {
+          width: 540px;
+        }
+      }
+
+      .card__buttons-list {
+        flex: 0.6;
+        text-align: right;
+        align-self: flex-start;
+        margin-right: 1rem;
+
+        p {
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: white;
+        }
+
+        .card__buttons-group-list {
+          display: flex;
+          justify-content: flex-end;
+          gap: 1rem;
+
+          .card__button-thumbsUp-list {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2px;
+            background: rgba(60, 187, 180, 0.6);
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .card__button-thumbsDown-list {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2px;
+            background: rgba(249, 173, 29, 0.6);
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .card__button-vote-list {
+            cursor: pointer;
+            padding: 10px 1rem;
+            background: rgba(48, 48, 48, 0.6);
+            border: 1px solid #ffffff;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .card__gauge-list {
+      position: absolute;
+      width: 100%;
+      height: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
+      color: white;
+
+      .card__gauge-positive-list {
+        height: 45px;
+        width: 30%;
+        background: rgba(60, 187, 180, 0.6);
+        p {
+          margin-left: 10px;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .card__gauge-negative-list {
+        text-align: right;
+        height: 45px;
+        width: 70%;
+        background: rgba(249, 173, 29, 0.6);
+        p {
+          margin-right: 10px;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .card__container-list {
+    .card__content-list {
+      .card__wrapper-list {
+        .card__text-list {
+          flex: 0.3;
+          p {
+            width: 400px;
+          }
+        }
+
+        .card__buttons-list {
+          flex: 0.4;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card__container-list {
+    .card__content-list {
+      .card__wrapper-list {
+        .card__text-list {
+          flex: 0.3;
+          p {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+}

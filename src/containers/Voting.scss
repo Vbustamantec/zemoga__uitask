@@ -1,0 +1,33 @@
+.voting__container {
+  position: relative;
+  width: 100%;
+
+  .voting__container-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .voting__header {
+    h2 {
+      margin: 0;
+    }
+
+    select {
+      font-size: 1rem;
+      width: 175px;
+      height: 36px;
+      text-align: center;
+    }
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .voting__card-container {
+    margin-top: 3rem;
+  }
+}
