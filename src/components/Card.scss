@@ -208,7 +208,7 @@
   );
   margin-bottom: 1rem;
 
-  .card__img-list {
+  .card__img {
     position: absolute;
     width: 200px;
     height: 200px;
@@ -218,7 +218,7 @@
     z-index: 1;
   }
 
-  .card__thumbs-list {
+  .card__thumbs {
     position: absolute;
     top: 0;
     left: 0;
@@ -229,16 +229,16 @@
     background: rgba(60, 187, 180, 0.6);
   }
 
-  .card__content-list {
+  .card__content {
     width: 100%;
     height: 100%;
-    .card__wrapper-list {
+    .card__wrapper {
       height: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
 
-      .card__text-list {
+      .card__text {
         align-self: flex-start;
         margin-top: 1rem;
         color: white;
@@ -253,7 +253,7 @@
         }
       }
 
-      .card__buttons-list {
+      .card__buttons {
         flex: 0.6;
         text-align: right;
         align-self: flex-start;
@@ -265,12 +265,12 @@
           color: white;
         }
 
-        .card__buttons-group-list {
+        .card__buttons-group {
           display: flex;
           justify-content: flex-end;
           gap: 1rem;
 
-          .card__button-thumbsUp-list {
+          .card__button-thumbsUp {
             cursor: pointer;
             display: flex;
             justify-content: center;
@@ -286,7 +286,7 @@
             }
           }
 
-          .card__button-thumbsDown-list {
+          .card__button-thumbsDown {
             cursor: pointer;
             display: flex;
             justify-content: center;
@@ -302,7 +302,7 @@
             }
           }
 
-          .card__button-vote-list {
+          .card__button-vote {
             cursor: pointer;
             padding: 10px 1rem;
             background: rgba(48, 48, 48, 0.6);
@@ -313,7 +313,7 @@
       }
     }
 
-    .card__gauge-list {
+    .card__gauge {
       position: absolute;
       width: 100%;
       height: 45px;
@@ -325,7 +325,7 @@
       bottom: 0;
       color: white;
 
-      .card__gauge-positive-list {
+      .card__gauge-positive {
         height: 45px;
         width: 30%;
         background: rgba(60, 187, 180, 0.6);
@@ -337,7 +337,7 @@
         }
       }
 
-      .card__gauge-negative-list {
+      .card__gauge-negative {
         text-align: right;
         height: 45px;
         width: 70%;
@@ -355,16 +355,16 @@
 
 @media screen and (max-width: 1100px) {
   .card__container-list {
-    .card__content-list {
-      .card__wrapper-list {
-        .card__text-list {
+    .card__content {
+      .card__wrapper {
+        .card__text {
           flex: 0.3;
           p {
             width: 400px;
           }
         }
 
-        .card__buttons-list {
+        .card__buttons {
           flex: 0.4;
         }
       }
@@ -374,9 +374,9 @@
 
 @media screen and (max-width: 768px) {
   .card__container-list {
-    .card__content-list {
-      .card__wrapper-list {
-        .card__text-list {
+    .card__content {
+      .card__wrapper {
+        .card__text {
           flex: 0.3;
           p {
             width: 300px;

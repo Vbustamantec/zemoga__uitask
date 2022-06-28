@@ -23,102 +23,39 @@ const Card = ({ id, name, category, description, picture, votes }) => {
   }, []);
 
   return (
-    <div
-      className={
-        display === 'grid' ? 'card__container' : 'card__container-list'
-      }
-    >
+    <div className={display === 'grid' ? 'card__container' : 'card__container-list'}>
+      <img className="card__img" src={picture} alt={name} />
       <img
-        className={display === 'grid' ? 'card__img' : 'card__img-list'}
-        src={picture}
-        alt="Kanye"
-      />
-      <img
-        className={display === 'grid' ? 'card__thumbs' : 'card__thumbs-list'}
+        className="card__thumbs"
         style={
           negativePercentage > positivePercentage
             ? { background: '#FBBD4A' }
             : { background: '#3CBBB4' }
         }
-        src={
-          negativePercentage > positivePercentage
-            ? images.thumbsDown
-            : images.thumbsUp
-        }
-        alt="Thumbs Up"
+        src={negativePercentage > positivePercentage ? images.thumbsDown : images.thumbsUp}
+        alt={negativePercentage > positivePercentage ? 'Thumbs Down' : 'Thumbs Up'}
       />
-      <div
-        className={display === 'grid' ? 'card__content' : 'card__content-list'}
-      >
-        <div
-          className={
-            display === 'grid' ? 'card__wrapper' : 'card__wrapper-list'
-          }
-        >
-          <div
-            className={display === 'grid' ? 'card__text' : 'card__text-list'}
-          >
+      <div className="card__content">
+        <div className="card__wrapper">
+          <div className="card__text">
             <h2>{name}</h2>
             <p>{description}</p>
           </div>
-          <div
-            className={
-              display === 'grid' ? 'card__buttons' : 'card__buttons-list'
-            }
-          >
+          <div className="card__buttons">
             <p>1 month ago in {category}</p>
-            <div
-              className={
-                display === 'grid'
-                  ? 'card__buttons-group'
-                  : 'card__buttons-group-list'
-              }
-            >
-              <button
-                className={
-                  display === 'grid'
-                    ? 'card__button-thumbsUp'
-                    : 'card__button-thumbsUp-list'
-                }
-              >
-                <img
-                  onClick={() => console.log('ello')}
-                  src={images.thumbsUp}
-                  alt=" Thumbs Up"
-                />
+            <div className="card__buttons-group">
+              <button className="card__button-thumbsUp">
+                <img onClick={() => console.log('ello')} src={images.thumbsUp} alt=" Thumbs Up" />
               </button>
-              <button
-                className={
-                  display === 'grid'
-                    ? 'card__button-thumbsDown'
-                    : 'card__button-thumbsDown-list'
-                }
-              >
+              <button className="card__button-thumbsDown">
                 <img src={images.thumbsDown} alt=" Thumbs Down" />
               </button>
-              <button
-                className={
-                  display === 'grid'
-                    ? 'card__button-vote'
-                    : 'card__button-vote-list'
-                }
-              >
-                Vote Now
-              </button>
+              <button className="card__button-vote">Vote Now</button>
             </div>
           </div>
         </div>
-        <div
-          className={display === 'grid' ? 'card__gauge' : 'card__gauge-list'}
-        >
-          <div
-            style={{ width: `${positivePercentage}%` }}
-            className={
-              display === 'grid'
-                ? 'card__gauge-positive'
-                : 'card__gauge-positive-list'
-            }
-          >
+        <div className="card__gauge">
+          <div style={{ width: `${positivePercentage}%` }} className="card__gauge-positive">
             <p>
               <span>
                 <img src={images.thumbsUp} alt=" Thumbs Up" />
@@ -126,14 +63,7 @@ const Card = ({ id, name, category, description, picture, votes }) => {
               {positivePercentage}%
             </p>
           </div>
-          <div
-            className={
-              display === 'grid'
-                ? 'card__gauge-negative'
-                : 'card__gauge-negative-list'
-            }
-            style={{ width: `${negativePercentage}%` }}
-          >
+          <div className="card__gauge-negative" style={{ width: `${negativePercentage}%` }}>
             <p>
               <span>
                 <img src={images.thumbsDown} alt=" Thumbs Up" />
