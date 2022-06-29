@@ -24,20 +24,26 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
   const [voteSelected, setVoteSelected] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
 
+  //This function will update the gauge bar percentages on page load and every time a vote is casted
   const handlePercentages = () => {
+    //Get the total amount of votes for the calculation
     const totalVotes = positiveVotes + negativeVotes;
 
+    //Calculate the % of negative and positive votes
     const negPercentage = (negativeVotes * 100) / totalVotes;
     const finalNegPercentage = negPercentage.toFixed(2);
 
     const posPercentage = (positiveVotes * 100) / totalVotes;
     const finalPostPercentage = posPercentage.toFixed(2);
 
+    //Set the percentage states to display in the gauge bar
     setNegativePercentage(finalNegPercentage);
     setPositivePercentage(finalPostPercentage);
   };
 
+  /* This function handles which vote are you selecting => "thumbsDown" or "thumbsUp" */
   const handleOption = (vote) => {
+    /* If the button is already selected it will unselect it */
     if (voteSelected === vote) {
       setVoteSelected('');
     } else {
@@ -45,11 +51,16 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
     }
   };
 
+  // handle the entire logic of the vote updating the data in the server and reflecting the data in the gauge bar
   const handleVote = () => {
+    // Reference from the document in the firebase DB
     const docRef = doc(db, 'candidates', id);
+
+    //If the user hasn't voted it will update the doc in the DB
     if (!hasVoted) {
       setHasVoted(!hasVoted);
 
+      //Depending on the vote selected will update the doc with a positive or negative vote
       if (voteSelected === 'thumbsDown') {
         setNegativeVotes((prevVotes) => prevVotes + 1);
         updateDoc(docRef, {
@@ -67,6 +78,8 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
           },
         });
       }
+
+      //If the user has voted already it will restore all the buttons to their default values and texts
     } else {
       setHasVoted(!hasVoted);
       setVoteSelected('');
@@ -85,10 +98,10 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
     <div
       className={
         display === 'grid' && width > 425
-          ? 'card__container desktop'
+          ? 'card__container '
           : display === 'list' && width > 425
           ? 'card__container-list'
-          : 'card__container mobile'
+          : 'card__container'
       }
     >
       <img className="card__img" src={picture} alt={`${name} image`} />

@@ -446,10 +446,6 @@
 }
 
 @media screen and (max-width: 425px) {
-  .desktop {
-    display: none;
-  }
-
   .card__container {
     .card__content {
       width: 350px;
@@ -466,11 +462,5 @@
     .card__img {
       width: 300px;
     }
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .mobile {
-    display: none;
   }
 }
