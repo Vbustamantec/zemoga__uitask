@@ -121,10 +121,7 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
           <div className="card__buttons">
             {!hasVoted ? (
               <>
-                <p>
-                  1 month ago in
-                  {category}
-                </p>
+                <p>1 month ago in {category}</p>
                 <div className="card__buttons-group">
                   <button
                     type="button"
@@ -167,22 +164,38 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
           </div>
         </div>
         <div className="card__gauge">
-          <div style={{ width: `${positivePercentage}%` }} className="card__gauge-positive">
-            <p>
-              <span>
-                <img src={images.thumbsUp} alt=" Thumbs Up" />
-              </span>
-              {positivePercentage}%
-            </p>
-          </div>
-          <div className="card__gauge-negative" style={{ width: `${negativePercentage}%` }}>
-            <p>
-              <span>
-                <img src={images.thumbsDown} alt=" Thumbs Up" />
-              </span>
-              {negativePercentage}%
-            </p>
-          </div>
+          {positivePercentage > 0 || negativePercentage > 0 ? (
+            <>
+              {positivePercentage > 0 ? (
+                <div style={{ width: `${positivePercentage}%` }} className="card__gauge-positive">
+                  <p>
+                    <span>
+                      <img src={images.thumbsUp} alt=" Thumbs Up" />
+                    </span>
+                    {positivePercentage}%
+                  </p>
+                </div>
+              ) : (
+                ''
+              )}
+              {negativePercentage > 0 ? (
+                <div className="card__gauge-negative" style={{ width: `${negativePercentage}%` }}>
+                  <p>
+                    <span>
+                      <img src={images.thumbsDown} alt=" Thumbs Up" />
+                    </span>
+                    {negativePercentage}%
+                  </p>
+                </div>
+              ) : (
+                ''
+              )}
+            </>
+          ) : (
+            <div className="card__gauge-empty">
+              <p>There are no votes yet</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
