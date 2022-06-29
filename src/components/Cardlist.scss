@@ -1,0 +1,166 @@
+.card__container-list {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    #888888 25%,
+    #666666 65%,
+    rgba(51, 51, 51, 0.6) 71.88%
+  );
+  margin-bottom: 1rem;
+
+  .card__img {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .card__thumbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 20px;
+    width: 20px;
+    padding: 0.5rem;
+    background: rgba(60, 187, 180, 0.6);
+  }
+
+  .card__content {
+    width: 100%;
+    height: 100%;
+    .card__wrapper {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .card__text {
+        align-self: flex-start;
+        margin-top: 1rem;
+        color: white;
+
+        h2 {
+          color: white;
+          margin: 0;
+          font-size: 2rem;
+        }
+        p {
+          width: 540px;
+        }
+      }
+
+      .card__buttons {
+        flex: 0.6;
+        text-align: right;
+        align-self: flex-start;
+        margin-right: 1rem;
+
+        p {
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: white;
+        }
+
+        .card__buttons-group {
+          display: flex;
+          justify-content: flex-end;
+          gap: 1rem;
+
+          button:disabled {
+            background: var(--color-darker-gray);
+            color: var(--color-light-background);
+            cursor: default;
+          }
+
+          .card__button-thumbsUp {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2px;
+            background: rgba(60, 187, 180, 0.6);
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .card__button-thumbsDown {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2px;
+            background: rgba(249, 173, 29, 0.6);
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .card__button-vote {
+            cursor: pointer;
+            padding: 10px 1rem;
+            background: rgba(48, 48, 48, 0.6);
+            border: 1px solid #ffffff;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .card__gauge {
+      position: absolute;
+      width: 100%;
+      height: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
+      color: white;
+
+      .card__gauge-positive {
+        height: 45px;
+        width: 30%;
+        background: rgba(60, 187, 180, 0.6);
+        p {
+          margin-left: 10px;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .card__gauge-negative {
+        text-align: right;
+        height: 45px;
+        width: 70%;
+        background: rgba(249, 173, 29, 0.6);
+        p {
+          margin-right: 10px;
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

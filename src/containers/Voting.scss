@@ -31,3 +31,20 @@
     margin-top: 3rem;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .voting__container {
+    .voting__header {
+      select {
+        display: none;
+      }
+    }
+
+    .voting__card-container {
+      display: flex;
+      overflow-x: scroll;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}

@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState } from 'react';
-import { collection, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+import PropTypes from 'prop-types';
 
 import db from '../firebase/firebaseConfig';
 
 const GlobalContext = createContext();
 
-export const GlobalContextProvider = ({ children }) => {
+export function GlobalContextProvider({ children }) {
   const [display, setDisplay] = useState('grid');
   const [candidates, setCandidates] = useState([]);
 
@@ -13,7 +14,7 @@ export const GlobalContextProvider = ({ children }) => {
 
   const getData = async () => {
     const completeData = await getDocs(colRef);
-    let products = [];
+    const products = [];
     completeData.docs.forEach((data) => {
       products.push({ ...data.data(), id: data.id });
     });
@@ -21,15 +22,23 @@ export const GlobalContextProvider = ({ children }) => {
     return products;
   };
 
-  const updateVotes = async () => {
-    await updateDoc();
-  };
-
   return (
-    <GlobalContext.Provider value={{ display, setDisplay, getData, candidates, setCandidates }}>
+    <GlobalContext.Provider
+      value={{
+        display,
+        setDisplay,
+        getData,
+        candidates,
+        setCandidates,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );
+}
+
+GlobalContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const useGlobalContext = () => useContext(GlobalContext);

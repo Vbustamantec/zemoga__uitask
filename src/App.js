@@ -1,13 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 import { images } from './constants';
+import Navbar from './containers/Navbar';
 import Voting from './containers/Voting';
 
 function App() {
   return (
     <div className="App">
-      <nav className="nav" role="navigation">
+      {/*  <nav className="nav" role="navigation">
         <div className="max-centered">
           <h1 className="nav__logo">Rule of thumb.</h1>
-          <button className="nav__hamburger icon-button" alt="Open Menu">
+          <button type="button" className="nav__hamburger icon-button" alt="Open Menu">
             <svg width="25" height="20" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M0 0h25v4H0V0zm0 8h25v4H0V8zm0 8h25v4H0v-4z"
@@ -28,23 +30,17 @@ function App() {
             </li>
             <li>
               <form>
-                <input
-                  className="nav__search-input"
-                  aria-label="search"
-                  type="text"
-                />
-                <button
-                  className="nav__search icon-button"
-                  alt="Search"
-                  type="submit"
-                >
+                <input className="nav__search-input" aria-label="search" type="text" />
+                <button className="nav__search icon-button" alt="Search" type="submit">
                   <img src={images.search} alt="search" />
                 </button>
               </form>
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> */}
+
+      <Navbar />
       <header className="hero">
         <img
           className="hero__background"
@@ -55,14 +51,13 @@ function App() {
         />
         <div className="max-centered">
           <div className="hero__featured-card">
-            <div className="featured-card__glass-background"></div>
+            <div className="featured-card__glass-background" />
             <div className="featured-card__content">
               <p className="featured-card__hairline">What's your opinion on</p>
               <h2 className="featured-card__title">Pope Francis?</h2>
               <p className="featured-card__desc">
-                He’s talking tough on clergy sexual abuse, or is he just another
-                pervert protector? (thumbs down) or a true pedophile punishing
-                pontiff? (thumbs up)
+                He’s talking tough on clergy sexual abuse, or is he just another pervert protector?
+                (thumbs down) or a true pedophile punishing pontiff? (thumbs up)
               </p>
               <p className="featured-card__more-info">
                 <a href="http://wikipedia.com">
@@ -82,10 +77,10 @@ function App() {
               </p>
               <p className="featured-card__cta">What’s Your Veredict?</p>
               <div className="featured-card__buttons">
-                <button className="icon-button" aria-label="thumbs up">
+                <button type="button" className="icon-button" aria-label="thumbs up">
                   <img src={images.thumbsUp} alt="thumbs up" />
                 </button>
-                <button className="icon-button" aria-label="thumbs down">
+                <button type="button" className="icon-button" aria-label="thumbs down">
                   <img src={images.thumbsDown} alt="thumbs down" />
                 </button>
               </div>
@@ -103,24 +98,19 @@ function App() {
         </div>
       </header>
       <div className="max-centered">
-        <aside
-          className="banner banner-top"
-          role="doc-tip"
-          aria-label="Speak Out"
-        >
+        <aside className="banner banner-top" role="doc-tip" aria-label="Speak Out">
           <div className="banner__left">
             <span className="banner__hairline">Speak out. Be heard.</span>
             <span className="banner__title">Be counted</span>
           </div>
           <div className="banner__right">
             <p className="banner__text">
-              Rule of Thumb is a crowd sourced court of public opinion where
-              anyone and everyone can speak out and speak freely. It’s easy: You
-              share your opinion, we analyze and put the data in a public
-              report.
+              Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can
+              speak out and speak freely. It’s easy: You share your opinion, we analyze and put the
+              data in a public report.
             </p>
           </div>
-          <button className="icon-button" aria-label="close">
+          <button type="button" className="icon-button" aria-label="close">
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
               <g stroke="#000" strokeWidth="2" fill="none" fillRule="evenodd">
                 <path d="M1 19L19 1M1 1l18 18" />
@@ -131,11 +121,7 @@ function App() {
         <main role="main">
           <Voting />
         </main>
-        <aside
-          className="banner banner-bottom"
-          role="doc-tip"
-          aria-label="Submit a name"
-        >
+        <aside className="banner banner-bottom" role="doc-tip" aria-label="Submit a name">
           <img
             srcSet={`${images.bgPeople} 750w, ${images.bgPeopleBig} 1440w`}
             sizes="(min-width: 750px) 1440px, 100vw"
@@ -145,12 +131,12 @@ function App() {
             role="none"
           />
           <div className="banner__left">
-            <h2 className="banner__heading">
-              Is there anyone else you would want us to add?
-            </h2>
+            <h2 className="banner__heading">Is there anyone else you would want us to add?</h2>
           </div>
           <div className="banner__right">
-            <button className="banner__cta">Submit a name</button>
+            <button type="button" className="banner__cta">
+              Submit a name
+            </button>
           </div>
         </aside>
         <hr />
@@ -173,11 +159,7 @@ function App() {
             <ul>
               <li>
                 <a href="#">
-                  <svg
-                    width="24"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                  <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M24 1.325v21.35c0 .732-.593 1.325-1.325 1.325H16.56v-9.294h3.12l.467-3.622H16.56V8.771c0-1.048.292-1.763 1.796-1.763h1.918v-3.24a25.663 25.663 0 00-2.795-.143c-2.766 0-4.659 1.688-4.659 4.788v2.671H9.691v3.622h3.128V24H1.325A1.325 1.325 0 010 22.676V1.325A1.325 1.325 0 011.325 0h21.35A1.325 1.325 0 0124 1.325z"
                       fill="#262626"
@@ -188,11 +170,7 @@ function App() {
               </li>
               <li>
                 <a href="#">
-                  <svg
-                    width="26"
-                    height="23"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                  <svg width="26" height="23" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M23.329 6.204c.01.23.01.458.01.687A15.182 15.182 0 01-.008 19.688c.421.05.845.075 1.27.073a10.7 10.7 0 006.627-2.289 5.335 5.335 0 01-4.984-3.704c.798.151 1.62.12 2.404-.094a5.346 5.346 0 01-4.276-5.233v-.073a5.396 5.396 0 002.413.666 5.357 5.357 0 01-1.654-7.127A15.15 15.15 0 0012.79 7.484a5.898 5.898 0 01-.135-1.217 5.336 5.336 0 019.228-3.652 10.612 10.612 0 003.392-1.29 5.368 5.368 0 01-2.351 2.955 10.811 10.811 0 003.07-.843 10.868 10.868 0 01-2.664 2.767z"
                       fill="#262626"

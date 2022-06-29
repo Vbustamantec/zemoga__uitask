@@ -1,3 +1,4 @@
+/*Card Normal Mode*/
 .card__container {
   position: relative;
   width: 350px;
@@ -10,7 +11,6 @@
     left: 0;
     top: 35%;
     padding: 0.5rem;
-    background: rgba(60, 187, 180, 0.6);
   }
 
   .card__img {
@@ -219,7 +219,6 @@
     height: 200px;
     left: 0;
     top: 0;
-    backdrop-filter: blur(2px);
     z-index: 1;
   }
 
@@ -338,7 +337,6 @@
 
       .card__gauge-positive {
         height: 45px;
-        width: 30%;
         background: rgba(60, 187, 180, 0.6);
         p {
           margin-left: 10px;
@@ -351,7 +349,6 @@
       .card__gauge-negative {
         text-align: right;
         height: 45px;
-        width: 70%;
         background: rgba(249, 173, 29, 0.6);
         p {
           margin-right: 10px;
@@ -403,5 +400,23 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
+
+  .card__container {
+    .card__content {
+      width: 350px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .mobile {
+    display: none;
   }
 }
