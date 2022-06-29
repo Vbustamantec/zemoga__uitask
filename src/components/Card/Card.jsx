@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { doc, updateDoc } from 'firebase/firestore';
 import PropTypes from 'prop-types';
 
-import { images } from '../constants';
-import { useGlobalContext } from '../context/GlobalContextProvider';
-import { useSize } from '../hooks/useSize';
-import db from '../firebase/firebaseConfig';
+import { images } from '../../constants';
+import { useGlobalContext } from '../../context/GlobalContextProvider';
+import { useSize } from '../../hooks/useSize';
+import db from '../../firebase/firebaseConfig';
 import './Card.scss';
 
 function Card({ id, name, category, description, picture, votes: { negative, positive } }) {

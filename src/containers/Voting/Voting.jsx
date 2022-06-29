@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 
 import './Voting.scss';
-import Card from '../components/Card';
-import { useGlobalContext } from '../context/GlobalContextProvider';
-import { useSize } from '../hooks/useSize';
+import Card from '../../components/Card/Card';
+import { useGlobalContext } from '../../context/GlobalContextProvider';
+import { useSize } from '../../hooks/useSize';
 
 function Voting() {
-  const {
-    display, setDisplay, getData, candidates, setCandidates,
-  } = useGlobalContext();
+  const { display, setDisplay, getData, candidates, setCandidates } = useGlobalContext();
   const [width] = useSize();
 
   useEffect(() => {
@@ -31,9 +29,7 @@ function Voting() {
           display === 'grid' && width > 600 ? 'voting__container-grid' : ''
         } `}
       >
-        {candidates.map(({
-          id, name, category, description, picture, votes,
-        }) => (
+        {candidates.map(({ id, name, category, description, picture, votes }) => (
           <Card
             key={id}
             name={name}

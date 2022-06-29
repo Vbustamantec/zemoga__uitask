@@ -37,11 +37,11 @@
       align-items: center;
       padding: 0 0.75rem 0 2.75rem;
       margin: 0;
-      color: white;
+      color: var(--color-white);
 
       .card__text {
         h2 {
-          color: white;
+          color: var(--color-white);
           margin: 0;
           font-size: 35px;
           overflow: hidden;
@@ -86,7 +86,7 @@
             padding: 0.5rem;
             border: none;
             border-radius: 2px;
-            background: rgba(60, 187, 180, 0.6);
+            background: var(--color-green-background);
 
             img {
               width: 20px;
@@ -95,7 +95,7 @@
           }
 
           .card__button-thumbsUp:hover {
-            background: #3cbbb4;
+            background: var(--color-green-selected);
           }
 
           .card__button-thumbsDown {
@@ -106,7 +106,7 @@
             padding: 0.5rem;
             border: none;
             border-radius: 2px;
-            background: rgba(249, 173, 29, 0.6);
+            background: var(--color-orange-background);
 
             img {
               width: 20px;
@@ -115,22 +115,22 @@
           }
 
           .card__button-thumbsDown:hover {
-            background: #fbbd4a;
+            background: var(--color-orange-selected);
           }
 
           .card__button-vote {
             cursor: pointer;
             padding: 10px 1rem;
-            background: rgba(48, 48, 48, 0.6);
-            border: 1px solid #ffffff;
-            color: white;
+            background: var(--color-dark-gray);
+            border: 1px solid var(--color-white);
+            color: var(--color-white);
           }
         }
       }
     }
 
     .card__gauge {
-      color: white;
+      color: var(--color-white);
 
       margin-top: 10px;
       display: flex;
@@ -147,7 +147,7 @@
 
         height: 36px;
         width: 30%;
-        background: rgba(60, 187, 180, 0.6);
+        background: var(--color-green-background);
         p {
           span {
             padding-right: 0.5rem;
@@ -171,7 +171,7 @@
         justify-content: flex-end;
         height: 36px;
         width: 70%;
-        background: rgba(249, 173, 29, 0.6);
+        background: var(--color-orange-background);
         text-align: right;
         p {
           padding-right: 1rem;
@@ -230,7 +230,7 @@
     height: 20px;
     width: 20px;
     padding: 0.5rem;
-    background: rgba(60, 187, 180, 0.6);
+    background: var(--color-green-background);
   }
 
   .card__content {
@@ -245,10 +245,10 @@
       .card__text {
         align-self: flex-start;
         margin-top: 1rem;
-        color: white;
+        color: var(--color-white);
 
         h2 {
-          color: white;
+          color: var(--color-white);
           margin: 0;
           font-size: 2rem;
         }
@@ -266,7 +266,7 @@
         p {
           font-weight: 700;
           font-size: 0.8rem;
-          color: white;
+          color: var(--color-white);
         }
 
         .card__buttons-group {
@@ -288,7 +288,7 @@
             padding: 0.5rem;
             border: none;
             border-radius: 2px;
-            background: rgba(60, 187, 180, 0.6);
+            background: var(--color-green-background);
 
             img {
               width: 20px;
@@ -304,7 +304,7 @@
             padding: 0.5rem;
             border: none;
             border-radius: 2px;
-            background: rgba(249, 173, 29, 0.6);
+            background: var(--color-orange-background);
 
             img {
               width: 20px;
@@ -316,8 +316,8 @@
             cursor: pointer;
             padding: 10px 1rem;
             background: rgba(48, 48, 48, 0.6);
-            border: 1px solid #ffffff;
-            color: white;
+            border: 1px solid var(--color-white);
+            color: var(--color-white);
           }
         }
       }
@@ -333,11 +333,11 @@
       z-index: 1;
       left: 0;
       bottom: 0;
-      color: white;
+      color: var(--color-white);
 
       .card__gauge-positive {
         height: 45px;
-        background: rgba(60, 187, 180, 0.6);
+        background: var(--color-green-background);
         p {
           margin-left: 10px;
           span {
@@ -349,7 +349,7 @@
       .card__gauge-negative {
         text-align: right;
         height: 45px;
-        background: rgba(249, 173, 29, 0.6);
+        background: var(--color-orange-background);
         p {
           margin-right: 10px;
           span {
@@ -364,7 +364,7 @@
 /*SELECTED CLASSES*/
 
 .button-selected {
-  outline: 2px solid white;
+  outline: 2px solid var(--color-white);
 }
 
 /*MEDIA QUERIES - LITTLE BREAKPOINTS*/
