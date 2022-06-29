@@ -11,10 +11,16 @@ import './Card.scss';
 function Card({ id, name, category, description, picture, votes: { negative, positive } }) {
   const { display } = useGlobalContext();
   const [width] = useSize();
+
+  /* State to determine the gauge percentage of every card */
   const [positivePercentage, setPositivePercentage] = useState(0);
   const [negativePercentage, setNegativePercentage] = useState(0);
+
+  /* State to calculate the percentage and the count of the votes for every card */
   const [positiveVotes, setPositiveVotes] = useState(positive);
   const [negativeVotes, setNegativeVotes] = useState(negative);
+
+  /* State that determines if the user has voted already in a card and which vote did he picked */
   const [voteSelected, setVoteSelected] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
 
@@ -30,14 +36,6 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
     setNegativePercentage(finalNegPercentage);
     setPositivePercentage(finalPostPercentage);
   };
-
-  useEffect(() => {
-    handlePercentages();
-  }, []);
-
-  useEffect(() => {
-    handlePercentages();
-  }, [positiveVotes, negativeVotes]);
 
   const handleOption = (vote) => {
     if (voteSelected === vote) {
@@ -75,17 +73,25 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
     }
   };
 
+  useEffect(() => {
+    handlePercentages();
+  }, []);
+
+  useEffect(() => {
+    handlePercentages();
+  }, [positiveVotes, negativeVotes]);
+
   return (
     <div
       className={
-        display === 'grid' && width > 600
+        display === 'grid' && width > 425
           ? 'card__container desktop'
-          : display === 'list' && width > 600
+          : display === 'list' && width > 425
           ? 'card__container-list'
           : 'card__container mobile'
       }
     >
-      <img className="card__img" src={picture} alt={name} />
+      <img className="card__img" src={picture} alt={`${name} image`} />
       <img
         className="card__thumbs"
         style={
@@ -127,7 +133,7 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
                     }`}
                     onClick={() => handleOption('thumbsUp')}
                   >
-                    <img src={images.thumbsUp} alt=" Thumbs Up" />
+                    <img src={images.thumbsUp} alt=" Thumbs Up button" />
                   </button>
                   <button
                     type="button"
@@ -136,7 +142,7 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
                     }`}
                     onClick={() => handleOption('thumbsDown')}
                   >
-                    <img src={images.thumbsDown} alt=" Thumbs Down" />
+                    <img src={images.thumbsDown} alt=" Thumbs Down button" />
                   </button>
                   <button
                     type="button"

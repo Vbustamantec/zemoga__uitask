@@ -32,7 +32,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 425px) {
   .voting__container {
     .voting__header {
       select {
@@ -45,6 +45,13 @@
       overflow-x: scroll;
       align-items: center;
       gap: 1rem;
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
