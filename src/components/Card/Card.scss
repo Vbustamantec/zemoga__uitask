@@ -20,7 +20,6 @@
     justify-content: flex-end;
 
     .card__wrapper {
-      z-index: 1;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -226,7 +225,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1;
       left: 0;
       bottom: 0;
       color: var(--color-white);
