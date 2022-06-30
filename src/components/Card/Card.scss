@@ -286,6 +286,10 @@
             border-radius: 2px;
             background: var(--color-green-background);
 
+            &:hover {
+              background: var(--color-green-selected);
+            }
+
             img {
               width: 20px;
               height: 20px;
@@ -301,6 +305,10 @@
             border: none;
             border-radius: 2px;
             background: var(--color-orange-background);
+
+            &:hover {
+              background: var(--color-orange-selected);
+            }
 
             img {
               width: 20px;
