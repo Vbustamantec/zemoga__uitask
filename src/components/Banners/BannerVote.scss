@@ -1,3 +1,5 @@
+@import '../../utils/breakpoints.scss';
+
 .banner-bottom {
   flex-direction: column;
   padding: 1rem 3rem;
@@ -38,7 +40,7 @@
   }
 }
 
-@media all and (min-width: 768px) {
+@include media-min(md) {
   .banner-bottom {
     flex-direction: row;
     justify-content: space-between;
@@ -63,7 +65,7 @@
   }
 }
 
-@media all and (min-width: 1100px) {
+@include media-min(lg) {
   .banner-bottom {
     .banner__cta {
       width: 20rem;

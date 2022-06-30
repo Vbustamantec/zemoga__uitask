@@ -1,10 +1,12 @@
 @import '../../utils/mixins.scss';
+@import '../../utils/breakpoints.scss';
 
 /*Card Normal Mode*/
 .card__container {
   position: relative;
   width: 350px;
   height: 350px;
+  background-size: cover;
 
   .card__thumbs {
     @include thumbs(35%);
@@ -267,7 +269,7 @@
 
 /*MEDIA QUERIES - LITTLE BREAKPOINTS*/
 
-@media screen and (max-width: 1100px) {
+@include media(lg) {
   .card__container-list {
     .card__content {
       .card__wrapper {
@@ -286,7 +288,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@include media(md) {
   .card__container-list {
     .card__content {
       .card__wrapper {
@@ -301,7 +303,7 @@
   }
 }
 
-@media screen and (max-width: 670px) {
+@include media(s-md) {
   .card__container-list {
     .card__content {
       .card__wrapper {
@@ -328,7 +330,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@include media(sm) {
   .card__container {
     .card__content {
       width: 350px;
@@ -336,7 +338,7 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@include media(xs) {
   .card__container {
     .card__content {
       width: 300px;
