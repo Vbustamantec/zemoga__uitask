@@ -12,6 +12,7 @@ function Voting() {
   useEffect(() => {
     getData().then((data) => {
       setCandidates(data);
+      console.log(data);
     });
   }, []);
 

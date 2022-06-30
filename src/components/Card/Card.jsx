@@ -103,8 +103,8 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
           ? 'card__container-list'
           : 'card__container'
       }
+      style={{ backgroundImage: `url(${picture})` }}
     >
-      <img className="card__img" src={picture} alt={`${name} image`} />
       <img
         className="card__thumbs"
         style={

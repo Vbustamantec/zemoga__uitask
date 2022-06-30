@@ -211,13 +211,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.0001) 0%,
-    #888888 25%,
-    #666666 65%,
-    rgba(51, 51, 51, 0.6) 71.88%
-  );
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--color-dark-gray);
+  background-position: 0%;
   margin-bottom: 1rem;
 
   .card__img {
