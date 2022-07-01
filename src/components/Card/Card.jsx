@@ -104,13 +104,15 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
           : 'card__container'
       }
       style={
-        display === 'grid'
+        display === 'grid' && width > 425
           ? {
               backgroundImage: `url(${picture})`,
             }
-          : {
-              backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, rgba(102, 102, 102) 18.5%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%), url(${picture})`,
+          : display === 'list' && width > 425
+          ? {
+              backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, rgba(102, 102, 102, 0.8) 19.5%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%), url(${picture})`,
             }
+          : { backgroundImage: `url(${picture})` }
       }
     >
       <img
