@@ -96,19 +96,9 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
 
   return (
     <div
-      className={
-        display === 'grid' && width > 425
-          ? 'card__container '
-          : display === 'list' && width > 425
-          ? 'card__container-list'
-          : 'card__container'
-      }
+      className={display === 'list' && width > 425 ? 'card__container-list ' : 'card__container'}
       style={
-        display === 'grid' && width > 425
-          ? {
-              backgroundImage: `url(${picture})`,
-            }
-          : display === 'list' && width > 425
+        display === 'list' && width > 425
           ? {
               backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, rgba(102, 102, 102, 0.8) 19.5%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%), url(${picture})`,
             }
