@@ -1,5 +1,5 @@
-@import '../../utils/mixins.scss';
-@import '../../utils/breakpoints.scss';
+@import '../../theme/mixins.scss';
+@import '../../theme/breakpoints.scss';
 
 /*Card Normal Mode*/
 .card__container {
@@ -151,7 +151,7 @@
   align-items: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: var(--color-dark-gray);
+  /* background-color: var(--color-dark-gray); */
   background-position: 0%;
   margin-bottom: 1rem;
 

@@ -103,7 +103,15 @@ function Card({ id, name, category, description, picture, votes: { negative, pos
           ? 'card__container-list'
           : 'card__container'
       }
-      style={{ backgroundImage: `url(${picture})` }}
+      style={
+        display === 'grid'
+          ? {
+              backgroundImage: `url(${picture})`,
+            }
+          : {
+              backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, rgba(102, 102, 102) 18.5%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%), url(${picture})`,
+            }
+      }
     >
       <img
         className="card__thumbs"
